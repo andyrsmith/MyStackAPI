@@ -1,0 +1,15 @@
+title,type,category,notes,link
+Clean Code,book,software-engineering,A must-read for writing maintainable code,https://example.com/clean-code
+The Pragmatic Programmer,book,software-engineering,Timeless advice for developers,https://example.com/pragmatic
+Python Crash Course,book,python,Great intro to Python,https://example.com/python-crash
+FastAPI Documentation,article,python,Official FastAPI docs,https://fastapi.tiangolo.com
+Real Python,website,python,In-depth Python tutorials,https://realpython.com
+Docker Deep Dive,book,devops,Beginner-friendly Docker guide,https://example.com/docker
+Kubernetes in Action,book,devops,Comprehensive K8s reference,https://example.com/k8s
+The DevOps Handbook,book,devops,Bridging dev and ops,https://example.com/devops-handbook
+System Design Interview,book,architecture,Covers scalable system design,https://example.com/system-design
+Designing Data-Intensive Applications,book,architecture,Essential for backend engineers,https://example.com/ddia
+Martin Fowler Blog,website,architecture,Patterns and best practices,https://martinfowler.com
+JavaScript: The Good Parts,book,javascript,Classic JS guide,https://example.com/js-good-parts
+You Don't Know JS,book,javascript,Deep dive into JS internals,https://example.com/ydkjs
+MDN Web Docs,website,javascript,Comprehensive web reference,https://developer.mozilla.org

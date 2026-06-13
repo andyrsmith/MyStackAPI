@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: .
+      target: development
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app                  # live reload: code changes reflected instantly
+    env_file:
+      - .env
+    environment:
+      - DEBUG=true
