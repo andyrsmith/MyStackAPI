@@ -16,9 +16,9 @@ jobs:
           sudo apt-get install -y docker-compose
       - name: Build and run Docker containers
         run: |
-          docker-compose run -f docker-compose.yml --rm api pytest -v
+          docker compose run --rm api pytest
       - name: Tear down Docker containers
         run: |
-          docker-compose -f docker-compose.test.yml down
+          docker-compose down
           
 
