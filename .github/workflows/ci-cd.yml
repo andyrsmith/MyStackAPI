@@ -1,0 +1,44 @@
+name: Run Test and deploy to EC2
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Docker compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+      - name: Build and run Docker containers
+        run: |
+          docker compose run --rm api pytest
+      - name: Tear down Docker containers
+        run: |
+          docker-compose down
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to EC2 & and run docker compose
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/web-api
+            git pull origin main
+            docker compose -f docker-compose.prod.yml down
+            docker compose -f docker-compose.prod.yml up --build -d
+
+
+
+          
+
