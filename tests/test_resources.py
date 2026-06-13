@@ -4,7 +4,7 @@ from tests.conftest import SAMPLE_DATA
 class TestListResources:
     def test_returns_200(self, client):
         response = client.get("/api/v1/resources/")
-        assert response.status_code == 400
+        assert response.status_code == 200
 
     def test_returns_all_records(self, client):
         response = client.get("/api/v1/resources/")
