@@ -1,5 +1,4 @@
 title,type,category,notes,link
-Clean Code,book,software-engineering,A must-read for writing maintainable code,https://example.com/clean-code
 The Pragmatic Programmer,book,software-engineering,Timeless advice for developers,https://example.com/pragmatic
 Python Crash Course,book,python,Great intro to Python,https://example.com/python-crash
 FastAPI Documentation,article,python,Official FastAPI docs,https://fastapi.tiangolo.com
