@@ -1,16 +1,16 @@
 import random
 from typing import List, Dict, Optional
 from app.db.session import CSVSession
-from app.schemas.resource import Catalog, RandomPickResponse
+from app.schemas.catalog import Catalog, RandomPickResponse
 
 
 def get_all_items(session: CSVSession) -> List[Catalog]:
-    """Return all resources from the CSV."""
+    """Return all items from the CSV."""
     return [Catalog(**row) for row in session.data]
 
 
 def get_random_by_category(session: CSVSession) -> List[RandomPickResponse]:
-    """Return one random resource per category."""
+    """Return one random item per category."""
     categories: Dict[str, List[dict]] = {}
 
     for row in session.data:
