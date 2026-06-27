@@ -1,8 +1,8 @@
 # Resources API
 
-A FastAPI application that serves a CSV-backed list of resources with two endpoints:
-- **List all resources** — returns every row from the CSV
-- **Random pick per category** — returns one randomly selected resource from each category
+A FastAPI application that serves a CSV-backed list of items with two endpoints:
+- **List all items frrom catalog** — returns every row from the CSV
+- **Random pick per category** — returns one randomly selected item from each category
 
 ---
 
@@ -18,13 +18,13 @@ fastapi_app/
 │   ├── api/v1/
 │   │   ├── router.py                  # Aggregates all v1 routers
 │   │   └── endpoints/
-│   │       └── resources.py           # /resources/ and /resources/random
+│   │       └── catalog.py           # /catalog/ and /catalog/random
 │   ├── crud/
-│   │   └── resource.py                # Data access logic (CSV reads)
+│   │   └── catalog.py                # Data access logic (CSV reads)
 │   ├── db/
 │   │   └── session.py                 # CSVSession (thin wrapper over csv.DictReader)
 │   └── schemas/
-│       └── resource.py                # Pydantic models: Resource, RandomPickResponse
+│       └── catalog.py                # Pydantic models: Resource, RandomPickResponse
 ├── data/
 │   └── resources.csv                  # CSV "database" (title, type, category, notes, link)
 ├── tests/
@@ -44,8 +44,8 @@ fastapi_app/
 
 | Method | Path                      | Description                          |
 |--------|---------------------------|--------------------------------------|
-| GET    | `/api/v1/resources/`      | List all resources                   |
-| GET    | `/api/v1/resources/random`| One random pick per category         |
+| GET    | `/api/v1/catalog/`        | List all items                   |
+| GET    | `/api/v1/catalog/random`  | One random pick per category         |
 | GET    | `/health`                 | Health check                         |
 
 Interactive docs available at `/docs` (Swagger) and `/redoc`.
@@ -101,13 +101,13 @@ docker compose run --rm api pytest -v
 
 | Column     | Required | Description                        |
 |------------|----------|------------------------------------|
-| `title`    | ✅       | Name of the resource               |
+| `title`    | ✅       | Name of the item                   |
 | `type`     | ✅       | e.g. `book`, `article`, `website`  |
 | `category` | ✅       | e.g. `python`, `devops`            |
 | `notes`    | ❌       | Short description                  |
-| `link`     | ❌       | URL to the resource                |
+| `link`     | ❌       | URL to the item                    |
 
-To add new resources, simply edit `data/resources.csv` — no migrations needed.
+To add new items, simply edit `data/resources.csv` — no migrations needed.
 
 ---
 
