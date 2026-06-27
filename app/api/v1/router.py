@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import resources
+from app.api.v1.endpoints import catalog
 
 router = APIRouter()
 
-router.include_router(resources.router, prefix="/resources", tags=["resources"])
+router.include_router(catalog.router, prefix="/catalog", tags=["catalog"])

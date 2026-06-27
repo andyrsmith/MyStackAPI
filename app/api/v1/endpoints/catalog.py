@@ -3,20 +3,20 @@ from typing import List
 
 from app.dependencies import get_session
 from app.db.session import CSVSession
-from app.schemas.resource import Resource, RandomPickResponse
-from app.crud import resource as crud
+from app.schemas.resource import Catalog, RandomPickResponse
+from app.crud import catalog as crud
 
 router = APIRouter()
 
 
 @router.get(
     "/",
-    response_model=List[Resource],
-    summary="List all resources",
-    description="Returns every resource from the data store.",
+    response_model=List[Catalog],
+    summary="List all items in the catalog",
+    description="Returns every item from the data store.",
 )
 def list_resources(session: CSVSession = Depends(get_session)):
-    return crud.get_all_resources(session)
+    return crud.get_all_items(session)
 
 
 @router.get(

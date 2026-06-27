@@ -1,7 +1,7 @@
 import csv
 from pathlib import Path
 from typing import List
-from app.schemas.resource import Resource
+from app.schemas.resource import Catalog
 
 
 def _load_csv(path: str) -> List[dict]:
